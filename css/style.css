@@ -1,0 +1,129 @@
+:root {
+  --Moderate-violet: hsl(263, 55%, 52%);
+  --Very-dark-grayish-blue: hsl(217, 19%, 35%);
+  --Very-dark-blackish-blue: hsl(219, 29%, 14%);
+  --White: hsl(0, 0%, 100%);
+  --Light-gray: hsl(0, 0%, 81%);
+  --Light-grayish-blue: hsl(210, 46%, 95%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Barlow Semi Condensed', sans-serif;
+
+}
+
+main {
+  display: grid;
+  min-height: 100vh;
+  background-color: var(--Light-gray);
+  place-content: center;
+}
+
+.cards {
+  display: grid;
+}
+
+@media (min-width:1000px) {
+  .cards {
+    grid-template: repeat(2, 1fr) / repeat(4, 1fr);
+    width: 1150px;
+  }
+}
+
+@media (max-width:999px) {
+  .cards {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    width: auto;
+  }
+}
+
+.cards .card {
+  margin: 15px;
+  padding: 25px 30px;
+  border-radius: 10px;
+  color: white;
+}
+
+.cards .card:first-of-type {
+  background-color: var(--Moderate-violet);
+  background-image: url(../images/bg-pattern-quotation.svg);
+  background-repeat: no-repeat;
+  background-position: top right 75px;
+}
+
+.cards .card:nth-of-type(2) {
+  background-color: var(--Very-dark-grayish-blue);
+}
+
+.cards .card:nth-of-type(3),
+.cards .card:last-of-type {
+  background-color: var(--White);
+  color: black;
+}
+
+.cards .card:nth-of-type(4) {
+  background-color: var(--Very-dark-blackish-blue);
+}
+
+@media (min-width:1000px) {
+  .cards .card:first-of-type {
+    grid-column: 1/span 2;
+  }
+
+  .cards .card:nth-of-type(2) {
+    grid-column: 3/4;
+  }
+
+  .cards .card:nth-of-type(4) {
+    grid-area: 2/2/ 3 / span 2;
+  }
+
+  .cards .card:last-of-type {
+    grid-area: 1/4/span 2 / 5;
+  }
+}
+
+.card img {
+  width: 30px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.card div {
+  display: inline-block;
+  margin-left: 15px;
+  font-size: 0.8rem;
+  position: relative;
+  bottom: 3px;
+}
+
+.card div p:last-of-type {
+  opacity: 50%;
+  font-size: 0.7rem;
+}
+
+.card .feedback {
+  margin-top: 15px;
+  font-size: 1.3rem;
+}
+
+.card .quote {
+  margin-top: 15px;
+  font-size: 0.85rem;
+  opacity: 70%;
+}
+
+footer {
+  font-size: 11px;
+  text-align: center;
+}
+
+footer a {
+  color: hsl(228, 45%, 44%);
+}
